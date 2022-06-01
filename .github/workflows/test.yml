@@ -21,9 +21,6 @@ jobs:
         with:
           name: linter-result
           path: ./result.md
-      - name: Evaluate Results
-        run: .github/workflows/display-error.sh
-        shell: bash
       - name: Dispatch to GenesysCloudBlueprint central
         run: |
           RESULTS=$(cat ./result.json | base64 | tr -d "[:space:]")
@@ -32,3 +29,6 @@ jobs:
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.TOKEN }} \
           --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'", "result": "'"$RESULTS"'" }}'
+      - name: Evaluate Results
+        run: .github/workflows/display-error.sh
+        shell: bash
