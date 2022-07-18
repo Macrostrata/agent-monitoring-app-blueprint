@@ -14,7 +14,7 @@ This solution includes a sample Vue app that uses the Genesys Cloud Javascript P
 
 To authenticate in a Genesys Cloud region other than `mypurecloud.com`, add an `environment` query parameter.
 
-For example:
+For example: aa
 
 ```
 https://genesyscloudblueprints.github.io/agent-monitoring-app?environment=mypurecloud.ie
